@@ -1,0 +1,39 @@
+* {
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	background-image: linear-gradient(45deg, #140044, #2f005c);
+}
+#tablero {
+	text-align: center;
+	/*background-image: linear-gradient(45deg, #140044, #2f005c); */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 60vh;
+	flex-direction: column;
+	position: fixed;
+	width: 100%;
+}
+#tablero h1,
+p {
+	color: aliceblue;
+}
+.title,
+.intro,
+.ejemplo {
+	text-align: center;
+	margin-top: 2%;
+	color: aliceblue;
+}
+.intro {
+	font-size: 22;
+	font-weight: 400;
+}
+.ejemplo {
+	font-weight: 300;
+	font-size: 20;
+	margin-right: 18%;
+	margin-left: 18%;
+}
