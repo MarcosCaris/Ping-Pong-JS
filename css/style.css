@@ -13,12 +13,14 @@ body {
 	align-items: center;
 	height: 60vh;
 	flex-direction: column;
-	position: fixed;
 	width: 100%;
 }
 #tablero h1,
 p {
 	color: aliceblue;
+}
+canvas {
+	box-shadow: 0 0 0.5em 0 #ac30ff, inset 0 0 0.5em 0 #ac30ff;
 }
 .title,
 .intro,
@@ -36,4 +38,18 @@ p {
 	font-size: 20;
 	margin-right: 18%;
 	margin-left: 18%;
+}
+
+.ejemplo b {
+	cursor: pointer;
+}
+#tienda {
+	height: 100vh;
+	background-color: #f0f0f0;
+}
+.game-screen-locked {
+	overflow: hidden;
+}
+#tablero {
+	margin-bottom: 50vh;
 }

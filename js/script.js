@@ -79,6 +79,8 @@ var Game = {
 		// Dibuja el texto del menu final ('Game Over' and 'Winner')
 		Pong.context.fillText(text, Pong.canvas.width / 2, Pong.canvas.height / 2 + 15);
 
+		document.body.classList.remove('game-screen-locked'); // Desbloquea la pantalla
+
 		setTimeout(function () {
 			Pong = Object.assign({}, Game);
 			Pong.initialize();
@@ -100,7 +102,7 @@ var Game = {
 		this.context.fillStyle = '#ffffff';
 
 		// Draw the Dibuja el texto de "Presiona cualquier tecla para iniciar"
-		this.context.fillText('Presiona una tecla para iniciar', this.canvas.width / 2, this.canvas.height / 2 + 15);
+		this.context.fillText('Presiona "p" para iniciar', this.canvas.width / 2, this.canvas.height / 2 + 15);
 	},
 
 	// Actualiza todos los objetos (mueve al jugador, IA, pelota, Incremento de puntos, etc.)
@@ -190,7 +192,7 @@ var Game = {
 		else if (this.ai.score === rounds[this.round]) {
 			this.over = true;
 			setTimeout(function () {
-				Pong.endGameMenu('Juego Finalizado, Perdiste!');
+				Pong.endGameMenu('Juego Finalizado!');
 			}, 1000);
 		}
 	},
@@ -264,6 +266,11 @@ var Game = {
 			if (event.key === 'p') {
 				if (Pong.running === false) {
 					Pong.running = true;
+					window.scrollTo({
+						top: 0,
+						behavior: 'smooth',
+					});
+					document.body.classList.add('game-screen-locked'); // Clase para fijar la pantalla
 					window.requestAnimationFrame(Pong.loop);
 				}
 			}
@@ -275,6 +282,10 @@ var Game = {
 				// Se encarga de la flecha hacia abajo y la s.
 				Pong.player.move = DIRECTION.DOWN;
 			}
+			// if (event.keyCode === 88) {
+			// 	// Código ASCII para la tecla "x"
+			// 	Pong.endGameMenu('Juego terminado por el usuario.');
+			// }
 		});
 
 		// Frena el movimiento del jugador cuando no hay ninguna tecla presionada.
@@ -309,3 +320,12 @@ var Game = {
 
 var Pong = Object.assign({}, Game);
 Pong.initialize();
+
+function scrollToTienda() {
+	const targetSection = document.getElementById('tienda');
+	const sectionTop = targetSection.offsetTop;
+	window.scrollTo({
+		top: sectionTop,
+		behavior: 'smooth',
+	});
+}
