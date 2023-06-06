@@ -330,3 +330,32 @@ canvas {
 .boton_play_musica.paused {
 	background-image: url('../imagenes/play_button.png');
 }
+/* .animation-start {
+	width: 200vh;
+	z-index: 9999;
+	background-color: black;
+	height: 300vh;
+	border-radius: 100%;
+	position: absolute;
+	top: -30%;
+	left: 28%;
+	overflow: hidden;
+	animation: backgroundstart 2s ease-in-out forwards;
+}
+@keyframes backgroundstart {
+	0% {
+		opacity: 100%;
+		z-index: 9999;
+	}
+	50% {
+		opacity: 50%;
+		z-index: 9999;
+	}
+	99% {
+		z-index: 9999;
+	}
+	100% {
+		opacity: 0%;
+		z-index: -5;
+	}
+} */
