@@ -19,8 +19,8 @@
 						<span class="tienda__texto" onclick="scrollToTienda()">Tienda</span>
 					</div>
 					<p class="ejemplo">
-						Controle a su jugador, haga goles tocando la pared de su oponente con la pelota, dependiendo de la ronda en la que este podra ganar mas o
-						menos monedas para mejorar su personaje en la <b onclick="scrollToTienda()" class="underline">tienda</b>. Que lo disfrute :D
+						Controle a su jugador, haga goles tocando la pared de su oponente con la pelota, ganara monedas ganando en la ronda 5 para desbloquear
+						cosmeticos en la <b onclick="scrollToTienda()" class="underline">tienda</b>. Que lo disfrute :D
 					</p>
 					<div class="inventario__box">
 						<button class="boton_inventario" onclick="scrollToInventario()"></button>
@@ -30,7 +30,22 @@
 			</section>
 		</header>
 		<div id="tablero">
-			<canvas></canvas>
+			<div class="centro__tablero">
+				<div class="musica_play_box">
+					<button class="boton_play_musica"></button>
+					<span class="play__texto">Play</span>
+					<div id="barra-musica">
+						<input type="range" id="volume-slider" min="0" max="100" value="50" step="1" />
+					</div>
+				</div>
+				<canvas></canvas>
+				<div>
+					<div class="musica_play_box">
+						<button class="boton_skip_musica"></button>
+						<span class="play__texto">Skip</span>
+					</div>
+				</div>
+			</div>
 			<p>Controla al jugador de la izquierda usando las flechas del teclado</p>
 		</div>
 		<section id="tienda">
@@ -44,10 +59,10 @@
 					<button class="tarjeta-producto__boton"><a href="">Comprar</a></button>
 				</div>
 				<div class="tarjetas">
-					<img src="./imagenes/levelup-tienda.png" alt="imagen-tienda-2" class="tarjeta-producto__imagen" />
+					<img src="./imagenes/tienda_musica.png" alt="imagen-tienda-2" class="tarjeta-producto__imagen" />
 					<div class="separador"></div>
-					<h3 class="tarjeta-producto__titulo">Upgrade</h3>
-					<p class="tarjeta-producto__descripcion">Mejora las estadisticas de tu jugador</p>
+					<h3 class="tarjeta-producto__titulo">Musica Nueva</h3>
+					<p class="tarjeta-producto__descripcion">Desbloquea nuevas canciones para escuchar jugando</p>
 					<button class="tarjeta-producto__boton"><a href="">Comprar</a></button>
 				</div>
 				<div class="tarjetas">

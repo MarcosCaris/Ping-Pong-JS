@@ -350,3 +350,13 @@ function scrollToInventario() {
 		behavior: 'smooth',
 	});
 }
+
+window.addEventListener('DOMContentLoaded', function () {
+	var volumeSlider = document.getElementById('volume-slider');
+
+	volumeSlider.addEventListener('input', function () {
+		var volumeValue = volumeSlider.value;
+		// Se utiliza el valor de volumeValue para ajustar el volumen de tu reproductor de música
+		console.log('Volumen actual:', volumeValue);
+	});
+});
