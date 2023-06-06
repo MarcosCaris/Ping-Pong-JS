@@ -6,7 +6,7 @@ var DIRECTION = {
 	LEFT: 3,
 	RIGHT: 4,
 };
-
+var userScore = 0;
 var rounds = [5, 5, 3, 3, 2];
 var colors = ['#1abc9c', '#2ecc71', '#3498db', '#8c52ff', '#9b59b6'];
 
@@ -175,6 +175,7 @@ var Game = {
 			// si es que no hay
 			if (!rounds[this.round + 1]) {
 				this.over = true;
+				this.player.score++;
 				setTimeout(function () {
 					Pong.endGameMenu('Ganaste!');
 				}, 1000);
@@ -353,10 +354,64 @@ function scrollToInventario() {
 
 window.addEventListener('DOMContentLoaded', function () {
 	var volumeSlider = document.getElementById('volume-slider');
+	var audio = document.getElementById('background-music');
+	var playButton = document.querySelector('.boton_play_musica');
+	var skipButton = document.querySelector('.boton_skip_musica');
+	var songs = ['./musica/musica-3.mp3', './musica/musica-1.mp3', './musica/musica-2.mp3', './musica/minecraft-song.mp3'];
+	var currentSongIndex = 0;
+
+	function playCurrentSong() {
+		audio.src = songs[currentSongIndex];
+		audio.load();
+		audio.volume = volumeSlider.value / 100;
+		audio.play();
+		console.log('Now playing:', songs[currentSongIndex]);
+		playButton.classList.add('playing');
+		playButton.classList.remove('paused');
+	}
+
+	function skipToNextSong() {
+		currentSongIndex = (currentSongIndex + 1) % songs.length;
+		playCurrentSong();
+	}
 
 	volumeSlider.addEventListener('input', function () {
 		var volumeValue = volumeSlider.value;
-		// Se utiliza el valor de volumeValue para ajustar el volumen de tu reproductor de música
-		console.log('Volumen actual:', volumeValue);
+		audio.volume = volumeValue / 100;
+		console.log('Current volume:', volumeValue);
+	});
+
+	playButton.addEventListener('click', function () {
+		if (audio.paused) {
+			audio.play();
+			playButton.classList.add('playing');
+			playButton.classList.remove('paused');
+		} else {
+			audio.pause();
+			playButton.classList.add('paused');
+			playButton.classList.remove('playing');
+		}
+	});
+
+	skipButton.addEventListener('click', function () {
+		skipToNextSong();
+	});
+
+	audio.addEventListener('ended', function () {
+		skipToNextSong();
+	});
+
+	audio.addEventListener('loadedmetadata', function () {
+		audio.volume = volumeSlider.value / 100;
+	});
+
+	document.body.addEventListener('click', function () {
+		playCurrentSong();
+
+		document.body.removeEventListener('click', arguments.callee);
 	});
 });
+victor.score++;
+if (victor === this.player && this.round === rounds.length - 1) {
+	userScore++;
+}

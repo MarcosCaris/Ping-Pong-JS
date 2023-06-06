@@ -324,3 +324,9 @@ canvas {
 	cursor: pointer;
 	border-radius: 3px;
 }
+.boton_play_musica.playing {
+	background-image: url('../imagenes/musica-pausa.png');
+}
+.boton_play_musica.paused {
+	background-image: url('../imagenes/play_button.png');
+}
