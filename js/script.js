@@ -329,3 +329,15 @@ function scrollToTienda() {
 		behavior: 'smooth',
 	});
 }
+const title = document.querySelector('.title');
+const text = title.textContent;
+const letters = text.split('');
+
+title.textContent = '';
+
+for (let i = 0; i < letters.length; i++) {
+	const span = document.createElement('span');
+	span.textContent = letters[i];
+	span.style.animationDelay = `${0.08 * i}s`;
+	title.appendChild(span);
+}

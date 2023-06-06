@@ -3,11 +3,57 @@
 }
 
 body {
-	background-image: linear-gradient(45deg, #140044, #2f005c);
+	background: linear-gradient(360deg, #140044, #560088);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	margin: 0;
+	padding: 0;
 }
+.js {
+	color: #fffad0;
+	font-weight: 400;
+}
+.title {
+	text-align: center;
+	color: #14004400;
+	background-color: rgba(0, 0, 0, 0.575);
+	padding: 10px;
+}
+
+.title span {
+	animation: rainbow-animation 7s infinite;
+}
+
+@keyframes rainbow-animation {
+	0% {
+		color: rgb(255, 50, 50);
+	}
+	14% {
+		color: orange;
+	}
+	28% {
+		color: yellow;
+	}
+	42% {
+		color: rgb(0, 148, 0);
+	}
+	57% {
+		color: rgb(56, 56, 255);
+	}
+	71% {
+		color: rgb(94, 0, 161);
+	}
+	85% {
+		color: violet;
+	}
+	100% {
+		color: rgb(255, 50, 50);
+	}
+}
+
 #tablero {
 	text-align: center;
-	/*background-image: linear-gradient(45deg, #140044, #2f005c); */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -15,41 +61,69 @@ body {
 	flex-direction: column;
 	width: 100%;
 }
-#tablero h1,
-p {
+
+.ejemplo {
+	background-color: rgba(0, 0, 0, 0.377);
+	border-radius: 5px;
+}
+
+#tablero p {
 	color: aliceblue;
 }
+
 canvas {
 	box-shadow: 0 0 0.5em 0 #ac30ff, inset 0 0 0.5em 0 #ac30ff;
 }
-.title,
+
 .intro,
 .ejemplo {
 	text-align: center;
 	margin-top: 2%;
 	color: aliceblue;
 }
+
 .intro {
-	font-size: 22;
+	font-size: 22px;
 	font-weight: 400;
 }
+
 .ejemplo {
 	font-weight: 300;
-	font-size: 20;
-	margin-right: 18%;
-	margin-left: 18%;
+	font-size: 20px;
+	margin-right: 10%;
+	margin-left: 10%;
 }
 
 .ejemplo b {
 	cursor: pointer;
 }
+
 #tienda {
 	height: 100vh;
 	background-color: #f0f0f0;
 }
+
 .game-screen-locked {
 	overflow: hidden;
 }
+
 #tablero {
 	margin-bottom: 50vh;
+}
+.boton_tienda,
+.boton_inventario {
+	height: 12vh;
+	width: 15vh;
+}
+#box__superior {
+	display: flex;
+	flex-flow: row;
+	align-items: center;
+	justify-content: space-around;
+}
+.boton_inventario {
+	margin-right: 10vh;
+}
+.boton_tienda {
+	margin-left: 10vh;
 }
