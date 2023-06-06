@@ -341,3 +341,12 @@ for (let i = 0; i < letters.length; i++) {
 	span.style.animationDelay = `${0.08 * i}s`;
 	title.appendChild(span);
 }
+
+function scrollToInventario() {
+	const targetSection = document.getElementById('inventario');
+	const sectionTop = targetSection.offsetTop;
+	window.scrollTo({
+		top: sectionTop,
+		behavior: 'smooth',
+	});
+}

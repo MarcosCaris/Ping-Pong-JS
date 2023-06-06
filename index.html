@@ -14,12 +14,18 @@
 				<h1 class="title">Game Simulator</h1>
 				<p class="intro">Bienvenido a este juego de ping-pong realizado con <b class="js">javascript.</b></p>
 				<div id="box__superior">
-					<button class="boton_tienda"></button>
+					<div class="tienda__box">
+						<button class="boton_tienda" onclick="scrollToTienda()"></button>
+						<span class="tienda__texto" onclick="scrollToTienda()">Tienda</span>
+					</div>
 					<p class="ejemplo">
 						Controle a su jugador, haga goles tocando la pared de su oponente con la pelota, dependiendo de la ronda en la que este podra ganar mas o
-						menos monedas para mejorar su personaje en la <b onclick="scrollToTienda()">tienda</b>. Que lo disfrute :D
+						menos monedas para mejorar su personaje en la <b onclick="scrollToTienda()" class="underline">tienda</b>. Que lo disfrute :D
 					</p>
-					<button class="boton_inventario"></button>
+					<div class="inventario__box">
+						<button class="boton_inventario" onclick="scrollToInventario()"></button>
+						<span class="tienda__texto" onclick="scrollToInventario()">Inventario</span>
+					</div>
 				</div>
 			</section>
 		</header>
@@ -28,7 +34,56 @@
 			<p>Controla al jugador de la izquierda usando las flechas del teclado</p>
 		</div>
 		<section id="tienda">
-			<!-- Contenido de la sección -->
+			<p class="tienda__titulo">Tienda</p>
+			<div class="tarjetas__superior">
+				<div class="tarjetas">
+					<img src="./imagenes/red-ping-pong.png" alt="imagen-tienda-1" class="tarjeta-producto__imagen" />
+					<div class="separador"></div>
+					<h3 class="tarjeta-producto__titulo">Cancha de PingPong</h3>
+					<p class="tarjeta-producto__descripcion">Cambia el fondo de la cancha a una mesa de ping pong 😎</p>
+					<button class="tarjeta-producto__boton"><a href="">Comprar</a></button>
+				</div>
+				<div class="tarjetas">
+					<img src="./imagenes/levelup-tienda.png" alt="imagen-tienda-2" class="tarjeta-producto__imagen" />
+					<div class="separador"></div>
+					<h3 class="tarjeta-producto__titulo">Upgrade</h3>
+					<p class="tarjeta-producto__descripcion">Mejora las estadisticas de tu jugador</p>
+					<button class="tarjeta-producto__boton"><a href="">Comprar</a></button>
+				</div>
+				<div class="tarjetas">
+					<img src="./imagenes/tienda__en__progreso.png" alt="imagen-tienda-3" class="tarjeta-producto__imagen" />
+					<div class="separador"></div>
+					<h3 class="tarjeta-producto__titulo">Pelota Extra</h3>
+					<p class="tarjeta-producto__descripcion">Agrega una pelota</p>
+					<button class="tarjeta-producto__boton"><a href="">Comprar</a></button>
+				</div>
+			</div>
+		</section>
+		<section id="inventario">
+			<p class="inventario__titulo">Inventario</p>
+			<div class="tarjetas__superior">
+				<div class="tarjetas">
+					<img src="./imagenes/tienda__en__progreso.png" alt="imagen-inventario-1" class="tarjeta-producto__imagen" />
+					<div class="separador"></div>
+					<h3 class="tarjeta-producto__titulo">Pelota Extra</h3>
+					<p class="tarjeta-producto__descripcion">Agrega una pelota</p>
+					<button class="tarjeta-producto__boton"><a href="">Comprar</a></button>
+				</div>
+				<div class="tarjetas">
+					<img src="./imagenes/tienda__en__progreso.png" alt="imagen-inventario-2" class="tarjeta-producto__imagen" />
+					<div class="separador"></div>
+					<h3 class="tarjeta-producto__titulo">Pelota Extra</h3>
+					<p class="tarjeta-producto__descripcion">Agrega una pelota</p>
+					<button class="tarjeta-producto__boton"><a href="">Comprar</a></button>
+				</div>
+				<div class="tarjetas">
+					<img src="./imagenes/tienda__en__progreso.png" alt="imagen-inventario-3" class="tarjeta-producto__imagen" />
+					<div class="separador"></div>
+					<h3 class="tarjeta-producto__titulo">Pelota Extra</h3>
+					<p class="tarjeta-producto__descripcion">Agrega una pelota</p>
+					<button class="tarjeta-producto__boton"><a href="">Comprar</a></button>
+				</div>
+			</div>
 		</section>
 		<script src="./js/script.js"></script>
 	</body>
