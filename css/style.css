@@ -3,7 +3,7 @@
 }
 
 body {
-	background: linear-gradient(360deg, #140044, #560088);
+	background: linear-gradient(360deg, #006dad, #140044, #560088);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -103,10 +103,11 @@ canvas {
 	flex-direction: column;
 	height: 80vh;
 	border: 2px solid #f0f0f0;
+	border-radius: 1vh;
 	width: 90%;
 	margin: auto;
 	margin-bottom: 20vh;
-	background: linear-gradient(360deg, #14004479, #4b66ff4b);
+	background: linear-gradient(360deg, #3c7ffd4b, #14004479);
 }
 
 .game-screen-locked {
@@ -183,7 +184,8 @@ canvas {
 	width: 90%;
 	margin: auto;
 	margin-bottom: 10vh;
-	background: linear-gradient(360deg, #14004479, #4b66ff4b);
+	background: linear-gradient(360deg, #007dc5, #001f834b);
+	border-radius: 1vh;
 }
 .tienda__titulo {
 	font-size: 6vh;
