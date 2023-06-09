@@ -9,6 +9,7 @@ var DIRECTION = {
 var userScore = 0;
 var rounds = [5, 5, 3, 3, 2];
 var colors = ['#1abc9c', '#2ecc71', '#3498db', '#8c52ff', '#9b59b6'];
+var roundColors = ['#25a8ffd8', '#61ffbdc4', '#db7c00e0', '#a50000e0'];
 
 // El objeto pelota (Cubo que rebota)
 var Ball = {
@@ -44,6 +45,8 @@ var Game = {
 	initialize: function () {
 		this.canvas = document.querySelector('canvas');
 		this.context = this.canvas.getContext('2d');
+
+		this.currentRound = 0;
 
 		this.canvas.width = 1400;
 		this.canvas.height = 1000;
@@ -103,6 +106,7 @@ var Game = {
 
 		// Draw the Dibuja el texto de "Presiona cualquier tecla para iniciar"
 		this.context.fillText('Presiona "p" para iniciar', this.canvas.width / 2, this.canvas.height / 2 + 15);
+		this.context.fillText('Muevete con w,s o las flechas', this.canvas.width / 2, this.canvas.height / 1.1 + 15);
 	},
 
 	// Actualiza todos los objetos (mueve al jugador, IA, pelota, Incremento de puntos, etc.)
@@ -170,7 +174,7 @@ var Game = {
 
 		// Se encarga de la transicion de ronda
 		// Verifica si el jugador gano la ronda
-		if (this.player.score === rounds[this.round]) {
+		if (this.player.score === rounds[this.currentRound]) {
 			// Revisa si hay mas niveles/rondas disponibles y muestra la pantalla de victoria
 			// si es que no hay
 			if (!rounds[this.round + 1]) {
@@ -181,12 +185,13 @@ var Game = {
 				}, 1000);
 			} else {
 				// Si queda otra ronda resetea todos los valores e incrementa el numero de ronda.
-				this.color = this._generateRoundColor();
+				this.color = roundColors[this.currentRound];
 				this.player.score = this.ai.score = 0;
 				this.player.speed += 0.5;
 				this.ai.speed += 1;
 				this.ball.speed += 1;
 				this.round += 1;
+				this.currentRound++;
 			}
 		}
 		// Revisa parar ver si gano la IA.
@@ -246,7 +251,7 @@ var Game = {
 		this.context.font = '30px Courier New';
 
 		// Dibuja el puntaje ganador (centro)
-		this.context.fillText('Ronda ' + (Pong.round + 1), this.canvas.width / 2, 35);
+		this.context.fillText('RONDA ' + (Pong.round + 1), this.canvas.width / 2, 35);
 
 		// Cambia el tamaño de la fuente para el puntaje del centro
 		this.context.font = '40px Courier';
@@ -309,13 +314,6 @@ var Game = {
 	// Espera a que haya un delay antes de cada turno
 	_turnDelayIsOver: function () {
 		return new Date().getTime() - this.timer >= 1000;
-	},
-
-	// Elige un color random para el fondo para cada nivel/ronda
-	_generateRoundColor: function () {
-		var newColor = colors[Math.floor(Math.random() * colors.length)];
-		if (newColor === this.color) return Pong._generateRoundColor();
-		return newColor;
 	},
 };
 
@@ -411,7 +409,73 @@ window.addEventListener('DOMContentLoaded', function () {
 		document.body.removeEventListener('click', arguments.callee);
 	});
 });
-victor.score++;
-if (victor === this.player && this.round === rounds.length - 1) {
-	userScore++;
+
+const productPrices = {
+	product1: 1,
+	product2: 1,
+	product3: 1,
+};
+
+function updateButtonState() {
+	const buttons = document.getElementsByClassName('tarjeta-producto__boton')[0];
+
+	for (let i = 0; i < buttons.length; i++) {
+		const button = buttons[i];
+		const productId = button.id;
+		const productPrice = productPrices[productId];
+	}
 }
+
+function purchaseProduct(productId) {
+	const productPrice = productPrices[productId];
+
+	if (userScore >= productPrice) {
+		userScore -= productPrice;
+		alert('Compra exitosa!');
+	} else {
+		alert('Balance insuficiente');
+	}
+
+	updateButtonState();
+}
+
+const purchaseButtons = document.getElementsByClassName('tarjeta-producto__boton')[0];
+for (let i = 0; i < purchaseButtons.length; i++) {
+	const purchaseButton = purchaseButtons[i];
+	const productId = purchaseButton.id;
+	purchaseButton.addEventListener('click', (event) => {
+		event.preventDefault();
+		purchaseProduct(productId);
+	});
+}
+
+updateButtonState();
+
+// const containerProducts = document.getElementById('tienda');
+// const modal = document.getElementById('tarjetas__superior');
+// const carrito = document.getElementById('inventario');
+// const ShowPoints = document.getElementById('pointsTotal');
+// const ContainerCart = document.querySelector('.tarjetas__inferior');
+// let productosCarrito = [];
+
+// cargarEventosCompras();
+
+// function cargarEventosCompras() {
+// 	document.addEventListener('DOMContentLoaded', () => {
+// 		renderizarProductos();
+// 	});
+// }
+
+// function renderizarProductos() {
+// 	productos.forEach((producto) => {
+// 		const divCard = document.createElement('div');
+// 		divCard.classList.add('tarjetas');
+// 		divCard.innetHTML += `
+// 		<img src="./img/${producto.img}" alt="${producto.nombre}" />
+// 		<h4>${producto.nombre}</h4>
+// 		<p>$${producto.precio}</p>
+// 		<a id=${producto.id} class="tarjeta-producto__boton agregar-carrito" href="#">Comprar</a>
+// 		`;
+// 		containerProducts.appendChild(divCard);
+// 	});
+// }

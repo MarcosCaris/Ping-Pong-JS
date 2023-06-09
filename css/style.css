@@ -139,6 +139,7 @@ canvas {
 	align-items: center;
 	justify-content: center;
 	background: url('../imagenes/inventario_icono.png') center/contain no-repeat;
+	background-color: #25a8ffd8;
 }
 .boton_tienda {
 	display: inline-flex;
@@ -151,6 +152,8 @@ canvas {
 	align-items: center;
 	justify-content: center;
 	background: url('../imagenes/tienda__icono.png') center/contain no-repeat;
+	background-size: 10vh;
+	background-color: #ffdb3cd0;
 }
 .tienda__texto {
 	color: white;
@@ -186,6 +189,7 @@ canvas {
 	margin-bottom: 10vh;
 	background: linear-gradient(360deg, #007dc5, #001f834b);
 	border-radius: 1vh;
+	color: #61ffbdc4;
 }
 .tienda__titulo {
 	font-size: 6vh;
@@ -193,7 +197,7 @@ canvas {
 	text-align: center;
 	border-radius: 4px;
 }
-.tarjetas__superior {
+#tarjetas__superior {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
