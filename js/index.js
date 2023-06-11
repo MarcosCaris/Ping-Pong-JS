@@ -451,31 +451,24 @@ for (let i = 0; i < purchaseButtons.length; i++) {
 
 updateButtonState();
 
-// const containerProducts = document.getElementById('tienda');
-// const modal = document.getElementById('tarjetas__superior');
-// const carrito = document.getElementById('inventario');
-// const ShowPoints = document.getElementById('pointsTotal');
-// const ContainerCart = document.querySelector('.tarjetas__inferior');
-// let productosCarrito = [];
+const containerProducts = document.getElementById('tienda');
+const modal = document.getElementById('tarjetas__superior');
+const carrito = document.getElementById('inventario');
+const ShowPoints = document.getElementById('pointsTotal');
+const ContainerCart = document.querySelector('.tarjetas__inferior');
+let productosCarrito = [];
 
-// cargarEventosCompras();
+cargarEventosCompras();
 
-// function cargarEventosCompras() {
-// 	document.addEventListener('DOMContentLoaded', () => {
-// 		renderizarProductos();
-// 	});
-// }
+function cargarEventosCompras() {
+	containerProducts.addEventListener('click', agregarProducto);
+}
 
-// function renderizarProductos() {
-// 	productos.forEach((producto) => {
-// 		const divCard = document.createElement('div');
-// 		divCard.classList.add('tarjetas');
-// 		divCard.innetHTML += `
-// 		<img src="./img/${producto.img}" alt="${producto.nombre}" />
-// 		<h4>${producto.nombre}</h4>
-// 		<p>$${producto.precio}</p>
-// 		<a id=${producto.id} class="tarjeta-producto__boton agregar-carrito" href="#">Comprar</a>
-// 		`;
-// 		containerProducts.appendChild(divCard);
-// 	});
-// }
+function agregarProducto(e) {
+	e.preventDefault();
+
+	if (e.target.classList.contains('tarjeta-producto__boton')) {
+		const productoAgregado = e.target.parentElement;
+		console.log(object);
+	}
+}
