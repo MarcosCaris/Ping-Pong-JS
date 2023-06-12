@@ -6,12 +6,12 @@ var DIRECTION = {
 	LEFT: 3,
 	RIGHT: 4,
 };
-var userScore = 0;
+let userScore = 0;
 var rounds = [5, 5, 3, 3, 2];
 var colors = ['#1abc9c', '#2ecc71', '#3498db', '#8c52ff', '#9b59b6'];
 var roundColors = ['#25a8ffd8', '#61ffbdc4', '#db7c00e0', '#a50000e0'];
 
-// El objeto pelota (Cubo que rebota)
+// El objeto pelota
 var Ball = {
 	new: function (incrementedSpeed) {
 		return {
@@ -69,7 +69,7 @@ var Game = {
 	},
 
 	endGameMenu: function (text) {
-		// Cambiar la fuente y su color en el canvas canvas
+		// Cambiar la fuente y su color en el canvas
 		Pong.context.font = '45px Courier New';
 		Pong.context.fillStyle = this.color;
 
@@ -104,7 +104,7 @@ var Game = {
 		// Cambiar el color del canvas
 		this.context.fillStyle = '#ffffff';
 
-		// Draw the Dibuja el texto de "Presiona cualquier tecla para iniciar"
+		// Dibuja el texto de "Presiona cualquier tecla para iniciar"
 		this.context.fillText('Presiona "p" para iniciar', this.canvas.width / 2, this.canvas.height / 2 + 15);
 		this.context.fillText('Muevete con w,s o las flechas', this.canvas.width / 2, this.canvas.height / 1.1 + 15);
 	},
@@ -288,10 +288,6 @@ var Game = {
 				// Se encarga de la flecha hacia abajo y la s.
 				Pong.player.move = DIRECTION.DOWN;
 			}
-			// if (event.keyCode === 88) {
-			// 	// Código ASCII para la tecla "x"
-			// 	Pong.endGameMenu('Juego terminado por el usuario.');
-			// }
 		});
 
 		// Frena el movimiento del jugador cuando no hay ninguna tecla presionada.
@@ -410,65 +406,123 @@ window.addEventListener('DOMContentLoaded', function () {
 	});
 });
 
-const productPrices = {
-	product1: 1,
-	product2: 1,
-	product3: 1,
-};
+// const productPrices = {
+// 	product1: 1,
+// 	product2: 1,
+// 	product3: 1,
+// };
 
-function updateButtonState() {
-	const buttons = document.getElementsByClassName('tarjeta-producto__boton')[0];
+// function updateButtonState() {
+// 	const buttons = document.getElementsByClassName('tarjeta-producto__boton')[0];
 
-	for (let i = 0; i < buttons.length; i++) {
-		const button = buttons[i];
-		const productId = button.id;
-		const productPrice = productPrices[productId];
-	}
-}
+// 	for (let i = 0; i < buttons.length; i++) {
+// 		const button = buttons[i];
+// 		const productId = button.id;
+// 		const productPrice = productPrices[productId];
+// 	}
+// }
 
-function purchaseProduct(productId) {
-	const productPrice = productPrices[productId];
+// function purchaseProduct(productId) {
+// 	const productPrice = productPrices[productId];
 
-	if (userScore >= productPrice) {
-		userScore -= productPrice;
-		alert('Compra exitosa!');
+// 	if (userScore >= productPrice) {
+// 		userScore -= productPrice;
+// 		alert('Compra exitosa!');
+// 	} else {
+// 		alert('Balance insuficiente');
+// 	}
+
+// 	updateButtonState();
+// }
+
+// const purchaseButtons = document.getElementsByClassName('tarjeta-producto__boton')[0];
+// for (let i = 0; i < purchaseButtons.length; i++) {
+// 	const purchaseButton = purchaseButtons[i];
+// 	const productId = purchaseButton.id;
+// 	purchaseButton.addEventListener('click', (event) => {
+// 		event.preventDefault();
+// 		purchaseProduct(productId);
+// 	});
+// }
+
+// updateButtonState();
+
+// const containerProducts = document.getElementById('tienda');
+// const modal = document.getElementById('tarjetas__superior');
+// const carrito = document.getElementById('inventario');
+// const ShowPoints = document.getElementById('pointsTotal');
+// const ContainerCart = document.querySelector('.tarjetas__inferior');
+// let productosCarrito = [];
+
+// cargarEventosCompras();
+
+// function cargarEventosCompras() {
+// 	containerProducts.addEventListener('click', agregarProducto);
+// }
+
+// function agregarProducto(e) {
+// 	e.preventDefault();
+
+// 	if (e.target.classList.contains('tarjeta-producto__boton')) {
+// 		const productoAgregado = e.target.parentElement;
+// 		console.log(object);
+// 	}
+// }
+function comprarProducto(producto, precio) {
+	if (userScore >= precio) {
+		// Restar el precio del producto al userScore
+		userScore -= precio;
+
+		// Realizar acciones adicionales según el producto comprado
+		switch (producto) {
+			case 'cancha':
+				// Acciones para la compra de la cancha
+				break;
+			case 'musica':
+				// Acciones para la compra de la música
+				break;
+			case 'skin':
+				// Acciones para la compra de la apariencia del jugador
+				break;
+			default:
+				break;
+		}
+
+		// Actualizar el puntaje del usuario en el inventario
+		actualizarPuntajeUsuario();
+
+		// Mostrar un mensaje de éxito de compra
+		alert('¡Compra exitosa!');
 	} else {
-		alert('Balance insuficiente');
-	}
-
-	updateButtonState();
-}
-
-const purchaseButtons = document.getElementsByClassName('tarjeta-producto__boton')[0];
-for (let i = 0; i < purchaseButtons.length; i++) {
-	const purchaseButton = purchaseButtons[i];
-	const productId = purchaseButton.id;
-	purchaseButton.addEventListener('click', (event) => {
-		event.preventDefault();
-		purchaseProduct(productId);
-	});
-}
-
-updateButtonState();
-
-const containerProducts = document.getElementById('tienda');
-const modal = document.getElementById('tarjetas__superior');
-const carrito = document.getElementById('inventario');
-const ShowPoints = document.getElementById('pointsTotal');
-const ContainerCart = document.querySelector('.tarjetas__inferior');
-let productosCarrito = [];
-
-cargarEventosCompras();
-
-function cargarEventosCompras() {
-	containerProducts.addEventListener('click', agregarProducto);
-}
-
-function agregarProducto(e) {
-	e.preventDefault();
-
-	if (e.target.classList.contains('tarjeta-producto__boton')) {
-		const productoAgregado = e.target.parentElement;
-		console.log(object);
+		// Mostrar un mensaje de error de fondos insuficientes
+		alert('No tienes suficientes monedas para comprar este producto.');
 	}
 }
+function actualizarPuntajeUsuario() {
+	const puntosTotales = document.getElementById('pointsTotal');
+	puntosTotales.textContent = `Puntos Actuales: ${userScore}`;
+}
+document.getElementById('product1').addEventListener('click', function () {
+	comprarProducto('cancha', 1); // Llama a la función comprarProducto para comprar la cancha por 1 moneda
+});
+
+document.getElementById('product2').addEventListener('click', function () {
+	comprarProducto('musica', 1); // Llama a la función comprarProducto para comprar la música por 1 moneda
+});
+
+document.getElementById('product3').addEventListener('click', function () {
+	comprarProducto('skin', 1); // Llama a la función comprarProducto para comprar la apariencia del jugador por 1 moneda
+});
+const aumentarPuntos = document.getElementById('aumentarPuntos');
+
+// Función para aumentar el userScore cuando se hace clic en el botón
+function aumentarPuntos() {
+	// Incrementa el userScore
+	userScore++;
+
+	// por ejemplo, puedes mostrarlo en un elemento HTML con el ID 'scoreDisplay'
+	document.getElementById('puntosActuales').textContent = userScore;
+}
+
+// Agrega un listener de evento al botón para invocar la función aumentarPuntos cuando se hace clic en él
+aumentarPuntosButton.addEventListener('click', aumentarPuntos);
