@@ -406,123 +406,64 @@ window.addEventListener('DOMContentLoaded', function () {
 	});
 });
 
-// const productPrices = {
-// 	product1: 1,
-// 	product2: 1,
-// 	product3: 1,
-// };
+function comprarProducto(producto, precio) {
+	if (userScore >= precio) {
+		// Restar el precio del producto al userScore
+		userScore -= 1;
+		actualizarScore();
 
-// function updateButtonState() {
-// 	const buttons = document.getElementsByClassName('tarjeta-producto__boton')[0];
+		// Realizar acciones adicionales según el producto comprado
+		switch (producto) {
+			case 'cancha':
+				// Acciones para la compra de la cancha
+				break;
+			case 'musica':
+				// Acciones para la compra de la música
+				break;
+			case 'skin':
+				// Acciones para la compra de la apariencia del jugador
+				break;
+			default:
+				break;
+		}
 
-// 	for (let i = 0; i < buttons.length; i++) {
-// 		const button = buttons[i];
-// 		const productId = button.id;
-// 		const productPrice = productPrices[productId];
-// 	}
-// }
+		// Actualizar el puntaje del usuario en el inventario
+		actualizarPuntajeUsuario();
 
-// function purchaseProduct(productId) {
-// 	const productPrice = productPrices[productId];
+		// Mostrar un mensaje de éxito de compra
+		alert('¡Compra exitosa!');
+	} else {
+		// Mostrar un mensaje de error de fondos insuficientes
+		alert('No tienes suficientes monedas para comprar este producto.');
+	}
+}
+function actualizarPuntajeUsuario() {
+	const puntosTotales = document.getElementById('pointsTotal');
+	puntosTotales.textContent = `Puntos Actuales: ${userScore}`;
+}
+document.getElementById('product1').addEventListener('click', function () {
+	comprarProducto('cancha', 1); // Llama a la función comprarProducto para comprar la cancha por 1 moneda
+});
 
-// 	if (userScore >= productPrice) {
-// 		userScore -= productPrice;
-// 		alert('Compra exitosa!');
-// 	} else {
-// 		alert('Balance insuficiente');
-// 	}
+document.getElementById('product2').addEventListener('click', function () {
+	comprarProducto('musica', 1); // Llama a la función comprarProducto para comprar la música por 1 moneda
+});
 
-// 	updateButtonState();
-// }
+document.getElementById('product3').addEventListener('click', function () {
+	comprarProducto('skin', 1); // Llama a la función comprarProducto para comprar la apariencia del jugador por 1 moneda
+});
+const sumarPuntosButton = document.getElementById('sumarPuntosButton');
 
-// const purchaseButtons = document.getElementsByClassName('tarjeta-producto__boton')[0];
-// for (let i = 0; i < purchaseButtons.length; i++) {
-// 	const purchaseButton = purchaseButtons[i];
-// 	const productId = purchaseButton.id;
-// 	purchaseButton.addEventListener('click', (event) => {
-// 		event.preventDefault();
-// 		purchaseProduct(productId);
-// 	});
-// }
+// Función para aumentar el userScore cuando se hace clic en el botón
+function aumentarPuntos() {
+	// Incrementa el userScore
+	userScore++;
 
-// updateButtonState();
+	document.getElementById('puntosActuales').textContent = userScore;
+}
 
-// const containerProducts = document.getElementById('tienda');
-// const modal = document.getElementById('tarjetas__superior');
-// const carrito = document.getElementById('inventario');
-// const ShowPoints = document.getElementById('pointsTotal');
-// const ContainerCart = document.querySelector('.tarjetas__inferior');
-// let productosCarrito = [];
-
-// cargarEventosCompras();
-
-// function cargarEventosCompras() {
-// 	containerProducts.addEventListener('click', agregarProducto);
-// }
-
-// function agregarProducto(e) {
-// 	e.preventDefault();
-
-// 	if (e.target.classList.contains('tarjeta-producto__boton')) {
-// 		const productoAgregado = e.target.parentElement;
-// 		console.log(object);
-// 	}
-// }
-// function comprarProducto(producto, precio) {
-// 	if (userScore >= precio) {
-// 		// Restar el precio del producto al userScore
-// 		userScore -= precio;
-
-// 		// Realizar acciones adicionales según el producto comprado
-// 		switch (producto) {
-// 			case 'cancha':
-// 				// Acciones para la compra de la cancha
-// 				break;
-// 			case 'musica':
-// 				// Acciones para la compra de la música
-// 				break;
-// 			case 'skin':
-// 				// Acciones para la compra de la apariencia del jugador
-// 				break;
-// 			default:
-// 				break;
-// 		}
-
-// 		// Actualizar el puntaje del usuario en el inventario
-// 		actualizarPuntajeUsuario();
-
-// 		// Mostrar un mensaje de éxito de compra
-// 		alert('¡Compra exitosa!');
-// 	} else {
-// 		// Mostrar un mensaje de error de fondos insuficientes
-// 		alert('No tienes suficientes monedas para comprar este producto.');
-// 	}
-// }
-// function actualizarPuntajeUsuario() {
-// 	const puntosTotales = document.getElementById('pointsTotal');
-// 	puntosTotales.textContent = `Puntos Actuales: ${userScore}`;
-// }
-// document.getElementById('product1').addEventListener('click', function () {
-// 	comprarProducto('cancha', 1); // Llama a la función comprarProducto para comprar la cancha por 1 moneda
-// });
-
-// document.getElementById('product2').addEventListener('click', function () {
-// 	comprarProducto('musica', 1); // Llama a la función comprarProducto para comprar la música por 1 moneda
-// });
-
-// document.getElementById('product3').addEventListener('click', function () {
-// 	comprarProducto('skin', 1); // Llama a la función comprarProducto para comprar la apariencia del jugador por 1 moneda
-// });
-// const aumentarPuntos = document.getElementById('aumentarPuntos');
-
-// // Función para aumentar el userScore cuando se hace clic en el botón
-// function aumentarPuntos() {
-// 	// Incrementa el userScore
-// 	userScore++;
-
-// 	// por ejemplo, puedes mostrarlo en un elemento HTML con el ID 'scoreDisplay'
-// 	document.getElementById('puntosActuales').textContent = userScore;
-// }
-
-// // Agrega un listener de evento al botón para invocar la función aumentarPuntos cuando se hace clic en él
-// aumentarPuntosButton.addEventListener('click', aumentarPuntos);
+// Agrega un listener de evento al botón para invocar la función aumentarPuntos cuando se hace clic en él
+sumarPuntosButton.addEventListener('click', aumentarPuntos);
+function actualizarScore() {
+	document.getElementById('puntosActuales').textContent = userScore;
+}
