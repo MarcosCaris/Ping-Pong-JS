@@ -196,6 +196,14 @@ canvas {
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	height: 10vh;
+	margin-top: 2%;
+}
+.tarjeta-inventario__imagen {
+	height: 8vh;
+	padding: 3%;
+	width: auto;
+	background-size: 50%;
 }
 .tienda__titulo {
 	font-size: 6vh;
@@ -224,6 +232,20 @@ canvas {
 	border-radius: 8px;
 	color: white;
 }
+.tarjetas_inventario {
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	justify-content: space-around;
+	width: 16%;
+	height: 70%;
+	cursor: pointer;
+	border: 1px solid white;
+	background-color: #02030050;
+	padding: 0%;
+	border-radius: 8px;
+	color: white;
+}
 .tarjeta-producto__imagen {
 	height: 17vh;
 	width: auto;
@@ -233,6 +255,10 @@ canvas {
 	text-align: center;
 	font-size: 3vh;
 	padding-top: 5%;
+}
+.tarjeta-inventario__titulo {
+	text-align: center;
+	font-size: 2vh;
 }
 .tarjeta-producto__descripcion {
 	text-align: center;
@@ -347,9 +373,25 @@ canvas {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	height: 70vh;
+}
+.tarjetas__inferior__superior {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 	flex-direction: row;
 	width: 100%;
-	height: 50vh;
+	height: 50%;
+}
+.tarjetas__inferior__inferior {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: row;
+	width: 100%;
+	height: 50%;
 }
 #pointsTotal {
 	color: white;
