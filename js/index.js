@@ -431,10 +431,20 @@ function comprarProducto(producto, precio) {
 		actualizarPuntajeUsuario();
 
 		// Mostrar un mensaje de éxito de compra
-		alert('¡Compra exitosa!');
+		Swal.fire({
+			title: 'Felicidades',
+			text: '¡Compra Exitosa!',
+			icon: 'success',
+			backdrop: 'rgba(0, 123, 0, 0.4)',
+		});
 	} else {
 		// Mostrar un mensaje de error de fondos insuficientes
-		alert('No tienes suficientes monedas para comprar este producto.');
+		Swal.fire({
+			title: 'Error',
+			text: 'Puntos Insuficientes',
+			icon: 'error',
+			backdrop: 'rgba(123, 0, 0, 0.4)',
+		});
 	}
 }
 function actualizarPuntajeUsuario() {
