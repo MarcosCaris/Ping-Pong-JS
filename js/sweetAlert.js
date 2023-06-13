@@ -1,16 +1,16 @@
 Swal.fire({
 	title: 'Bienvenido',
 	width: 500,
-	color: '#FFF',
+	color: '#000000',
 	showClass: {
 		popup: 'animate__animated animate__jackInTheBox',
 	},
 	hideClass: {
 		popup: 'animate__animated animate__fadeOutDown',
 	},
-	background: '#020300 url(./imagenes/intro__icon.png)',
+	background: '#f1f1f1',
 	backdrop: `
-	url("./imagenes/banner_2.jpg")
+	url("./imagenes/intro__banner.jpg")
 	no-repeat
   `,
 });

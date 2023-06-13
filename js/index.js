@@ -357,8 +357,13 @@ window.addEventListener('DOMContentLoaded', function () {
 	function playCurrentSong() {
 		audio.src = songs[currentSongIndex];
 		audio.load();
-		audio.volume = volumeSlider.value / 100;
+		audio.volume = 0; // Establece el volumen al nivel más bajo (0) al cargar la canción
 		audio.play();
+
+		setTimeout(function () {
+			audio.volume = (volumeSlider.value / 100) * 0.25; // Establece el volumen al 1/4 del valor del slider después de un breve retardo
+		}, 10); // Retardo de 100 milisegundos
+
 		console.log('Now playing:', songs[currentSongIndex]);
 		playButton.classList.add('playing');
 		playButton.classList.remove('paused');

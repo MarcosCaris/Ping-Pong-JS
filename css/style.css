@@ -510,3 +510,6 @@ canvas {
 		color: rgb(255, 50, 50);
 	}
 }
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+	background-color: #000000 !important;
+}
