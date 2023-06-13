@@ -36,8 +36,11 @@
 				<div class="musica_play_box">
 					<button class="boton_play_musica"></button>
 					<span class="play__texto">Play</span>
-					<div id="barra-musica">
-						<input type="range" id="volume-slider" min="0" max="100" value="50" step="1" />
+					<div class="volumen">
+						<img src="./imagenes/icono_volumen.png" alt="volumen_icono" class="volumen_icono" />
+						<div id="barra-musica">
+							<input type="range" id="volume-slider" min="0" max="100" value="50" step="1" />
+						</div>
 					</div>
 				</div>
 				<canvas></canvas>
@@ -123,6 +126,18 @@
 				</div>
 			</div>
 		</section>
+		<footer>
+			<div id="footer">
+				<div class="derechos__footer">
+					<p>Pagina y Derechos 2023 por:</p>
+					<span
+						><a href="https://github.com/MarcosCaris" target="_blank"><b>@Marcos Caris</b></a></span
+					>
+				</div>
+				<p class="texto__footer">GRACIAS POR JUGAR!</p>
+				<img src="./imagenes/logo_github.png" alt="logo_github" class="logo_github" />
+			</div>
+		</footer>
 		<script src="./js/index.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<script src="./js/sweetAlert.js"></script>

@@ -10,6 +10,17 @@ body {
 	margin: 0;
 	padding: 0;
 }
+
+body::before {
+	content: '';
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: linear-gradient(360deg, rgba(0, 109, 173, 0.5), rgba(20, 0, 68, 0.5), rgba(86, 0, 136, 0.5));
+	z-index: -1;
+}
 .js {
 	color: #fffad0;
 	font-weight: 400;
@@ -73,6 +84,7 @@ body {
 
 canvas {
 	box-shadow: 0 0 0.5em 0 #ac30ff, inset 0 0 0.5em 0 #ac30ff;
+	margin-right: 6vh;
 }
 
 .intro,
@@ -107,7 +119,8 @@ canvas {
 	width: 90%;
 	margin: auto;
 	margin-bottom: 20vh;
-	background: linear-gradient(360deg, #3c7ffd4b, #14004479);
+	background: linear-gradient(360deg, rgba(60, 127, 253, 0.15), rgba(20, 0, 68, 0.6)), url(../imagenes/banner__4.jpg) no-repeat center center fixed;
+	background-size: cover;
 }
 
 .game-screen-locked {
@@ -187,7 +200,7 @@ canvas {
 	width: 90%;
 	margin: auto;
 	margin-bottom: 10vh;
-	background: linear-gradient(360deg, #007dc5, #001f834b);
+	background: linear-gradient(360deg, rgba(60, 127, 253, 0.3), rgba(20, 0, 68, 0.6)), url(../imagenes/banner__index.jpg) no-repeat center center fixed;
 	border-radius: 1vh;
 	color: #61ffbdc4;
 }
@@ -241,7 +254,7 @@ canvas {
 	height: 70%;
 	cursor: pointer;
 	border: 1px solid white;
-	background-color: #02030050;
+	background-color: #020300b7;
 	padding: 0%;
 	border-radius: 8px;
 	color: white;
@@ -288,10 +301,6 @@ canvas {
 	cursor: pointer;
 	color: #fffbfb;
 }
-/* .tarjeta-producto__boton a {
-	text-decoration: none;
-	color: #fffbfb;
-} */
 .boton_play_musica {
 	display: inline-flex;
 	width: 9vh;
@@ -304,6 +313,18 @@ canvas {
 	align-items: center;
 	justify-content: center;
 	background: url('../imagenes/play_button.png') center/contain no-repeat;
+}
+.volumen {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: row;
+	margin-right: 3vh;
+}
+.volumen_icono {
+	width: 3vh;
+	margin-top: 1.2vh;
+	margin-right: 1vh;
 }
 .play__texto {
 	font-size: 25;
@@ -425,4 +446,67 @@ canvas {
 }
 .texto_puntos {
 	border-bottom: solid white 2px;
+}
+#footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+	height: 20vh;
+	width: 100%;
+	background-color: #020300c2;
+	font-size: 2.5vh;
+	color: white;
+}
+.derechos__footer {
+	flex-direction: column;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	margin-left: 10vh;
+}
+.derechos__footer a {
+	text-decoration: none;
+	color: white;
+	cursor: pointer;
+}
+.logo_github {
+	width: 15vh;
+	margin-right: 10vh;
+}
+.texto__footer {
+	margin-right: 20vh;
+	font-weight: bolder;
+	border: solid white 2px;
+	padding: 3vh;
+	background-color: #000000c4;
+	border-radius: 8px;
+	animation: rainbow-END-animation 7s infinite;
+}
+@keyframes rainbow-END-animation {
+	0% {
+		color: rgb(255, 50, 50);
+	}
+	14% {
+		color: orange;
+	}
+	28% {
+		color: yellow;
+	}
+	42% {
+		color: rgb(83, 255, 204);
+	}
+	57% {
+		color: rgb(127, 127, 255);
+	}
+	71% {
+		color: rgb(255, 255, 255);
+	}
+	85% {
+		color: violet;
+	}
+	100% {
+		color: rgb(255, 50, 50);
+	}
 }
